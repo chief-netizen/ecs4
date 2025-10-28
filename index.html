@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Voice Translator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      text-align: center;
+      margin-top: 100px;
+    }
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      margin: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #238636;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #2ea043;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎙️ Raspberry Pi Voice Translator</h1>
+  <button onclick="runScript('/run')">English-Hindi</button>
+  <button onclick="runScript('/kitten')">Hindi-English</button>
+
+  <script>
+    async function runScript(endpoint) {
+      const res = await fetch(endpoint);
+      const text = await res.text();
+      alert(text);
+    }
+  </script>
+</body>
+</html>
